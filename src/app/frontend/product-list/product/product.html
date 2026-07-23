@@ -1,0 +1,20 @@
+@if (product) {
+    <div (click)="test('sad')" class="product-card" >
+      <div  [routerLink]="'/products/'+ product.slug" class="product-card__image-wrap">
+        <img
+          class="product-card__image"
+          [src]="imgPath + product.imgs[0]"
+          alt="{{ product.name }}"
+        />
+        @if (product.stock < 3) {
+          <span class="product-card__badge">Only {{ product.stock }} left</span>
+        }
+      </div>
+      <div class="product-card__body">
+        <p class="product-card__name">{{ product.name }}</p>
+
+        <p class="product-card__price">{{ product.price | currency }}</p>
+        <button class="product-card__cta" (click)="addToCart(product._id)">Add to cart</button>
+      </div>
+  </div>
+}

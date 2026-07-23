@@ -1,0 +1,9 @@
+<section class="products-section">
+  <div class="row g-4">
+    @for (product of productsList; track product) {
+      <div class="col-md-4">
+        <app-product [product]="product"></app-product>
+      </div>
+    }
+  </div>
+</section>

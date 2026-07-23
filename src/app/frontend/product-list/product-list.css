@@ -1,0 +1,33 @@
+.product-card__body {
+  padding: 0.9rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.product-card__cta {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.product-card__cta:hover {
+  background: #1d4ed8;
+}
+
+.product-card__cta:active {
+  transform: scale(0.98);
+}
+
+.product-card__cta:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

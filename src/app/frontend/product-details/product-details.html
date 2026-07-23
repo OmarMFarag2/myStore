@@ -1,0 +1,27 @@
+@if (product) {
+  <section class="product-details">
+    <div class="product-details__gallery">
+      <img
+        class="product-details__image"
+        [src]="imgPath + product.imgs[0]"
+        alt="{{ product.name }}"
+      />
+    </div>
+
+    <div class="product-details__info">
+      <h1 class="product-details__name">{{ product.name }}</h1>
+
+      <p class="product-details__price">{{ product.price | currency }}</p>
+
+      @if (product.stock < 3) {
+        <span class="product-details__badge">Only {{ product.stock }} left</span>
+      }
+
+      <p class="product-details__desc">{{ product.desc }}</p>
+
+      <button class="product-details__cta" (click)="addToCart(product._id)">
+        Add to cart
+      </button>
+    </div>
+  </section>
+}
