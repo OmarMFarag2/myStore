@@ -1,1 +1,80 @@
-<p>products works!</p>
+<form [formGroup]="productForm">
+
+  <div formArrayName="products">
+
+    <div
+      class="card mb-4 p-3"
+      *ngFor="let product of products.controls; let i = index"
+      [formGroupName]="i">
+
+      <h5>
+        {{ product.value._id ? 'Edit Product' : 'New Product' }}
+      </h5>
+
+      <div class="mb-3">
+        <label>Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name">
+      </div>
+
+      <div class="mb-3">
+        <label>Price</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="price">
+      </div>
+
+      <div class="mb-3">
+        <label>Stock</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="stock">
+      </div>
+
+      <div class="mb-3">
+        <label>Description</label>
+        <textarea
+          rows="3"
+          class="form-control"
+          formControlName="desc">
+        </textarea>
+      </div>
+
+      <div class="mb-3">
+        <label>Category</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="category">
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-success me-2"
+        (click)="saveProduct(i)">
+        {{ product.value._id ? 'Update' : 'Create' }}
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="removeProduct(i)">
+        Remove
+      </button>
+
+    </div>
+
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="addProduct()">
+    Add New Product
+  </button>
+
+</form>
